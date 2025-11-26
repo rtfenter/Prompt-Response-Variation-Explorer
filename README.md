@@ -5,7 +5,7 @@
 
 This project is part of my **AI & ML UX Systems Series**, a recruiter-friendly set of prototypes that demonstrate clear AI reasoning, model behavior intuition, and practical product thinking for AI PM roles.
 
-The goal of this explorer is to show how a single prompt can yield different responses when parameters such as temperature, length, and sampling behavior change — a core concept in evaluating model stability, sensitivity, and predictability.
+The goal of this explorer is to show how one prompt can yield different responses when parameters such as temperature, length, and sampling behavior change — a core concept in evaluating model stability, sensitivity, and predictability.
 
 ---
 
@@ -17,67 +17,60 @@ AI PM interviews frequently ask candidates to explain why the **same prompt** ca
 - “How do you test prompt sensitivity?”  
 - “How do you compare stability vs creativity?”  
 
-This explorer makes those questions simple to demonstrate:
+This explorer makes those questions easy to show and explain:
 
-- You enter one prompt.  
-- You choose how many variations to generate.  
-- You adjust parameter sets.  
-- You visually compare how each variation differs in tone, structure, and detail.
+- Enter one prompt  
+- Choose how many variations to generate  
+- Adjust parameter presets  
+- Compare outputs side-by-side  
 
-This turns abstract model evaluation into a clear, legible UX artifact.
+It turns abstract model evaluation into a clean, legible UX artifact.
 
 ---
 
 ## Features (MVP)
 
 - **Single prompt input**  
-  A single user/system prompt that all variations are based on.
+- **Variation count selector (2–6)**  
+- **Parameter presets**:  
+  - High Creativity  
+  - Low Creativity  
+  - Balanced  
+  - Short Answer  
+  - Long Answer  
+- **Side-by-side comparison panels**  
+- **Difference highlights (length, tone, structure, creativity)**  
+- **Mini-parameter summary for each variation**
 
-- **Variation count selector**  
-  Choose 2–6 side-by-side responses.
-
-- **Parameter presets**  
-  Quick options like:
-  - “High Creativity”
-  - “Low Creativity”
-  - “Balanced”
-  - “Short Answer”
-  - “Long Answer”
-
-- **Side-by-side comparison layout**  
-  Each variation appears in a distinct panel with:
-  - response text  
-  - mini parameter summary  
-  - visual difference cues  
-
-- **Difference highlights**  
-  Simple heuristics to mark differences in:
-  - length  
-  - sentiment  
-  - structure  
-  - creativity vs stability  
-
-This explorer is intentionally minimal — a clean visualization of how sensitive models are to prompt and parameter changes.
+This explorer focuses on clarity, not infrastructure.
 
 ---
 
 ## Example Prompts
 
-Useful prompts for generating meaningful variation:
+Helpful prompts for meaningful variation:
 
 1. “Explain vector embeddings as if I’m new to machine learning.”  
-2. “Write a concise summary of this policy: users can request data deletion at any time.”  
-3. “Draft a short message apologizing to a customer in a professional tone.”  
-4. “Give me three ideas for onboarding improvements for a SaaS platform.”  
+2. “Summarize this policy: users can request data deletion at any time.”  
+3. “Respond to this customer complaint in a professional tone: ‘Your tool deleted a week of my work.’”  
+4. “Give three ideas for improving SaaS onboarding.”  
 5. “Describe the difference between RAG and fine-tuning in one paragraph.”
 
-These produce noticeable changes under different parameter sets.
+These produce noticeable differences across parameter sets.
+
+---
+
+## Demo Screenshot
+
+> Screenshot placeholder — will be updated after MVP UI is implemented.
+
+<img width="2600" alt="Prompt–Response Variation Explorer Screenshot" src="https://github.com/user-attachments/assets/placeholder-variation-explorer.png" />
 
 ---
 
 ## Variation Flow Diagram
 
-Illustrating how one prompt branches into multiple outputs:
+A simple illustration of how one prompt branches into multiple outputs:
 
     [Single Prompt]
            |
@@ -95,40 +88,47 @@ Illustrating how one prompt branches into multiple outputs:
 
 ## Why Prompt Variation Matters
 
-Variation is directly tied to:
+Variation reveals how models behave under different conditions:
 
-- **model temperature & sampling settings**  
-- **context window differences**  
-- **prompt clarity and structure**  
-- **model instability or sensitivity**  
-- **safety policy interactions**  
-- **UX predictability**  
+- temperature changes  
+- sampling methods  
+- safety constraints  
+- context sensitivity  
+- prompt phrasing  
 
-AI PMs must be able to diagnose:
+AI PMs must understand when variation is:
 
-- when variation is good (creativity, ideation)  
-- when variation is harmful (inconsistent instructions, changing tone)  
-- how to design UX affordances to contain or expose variation intentionally  
+**Good**  
+- creativity  
+- ideation  
+- brainstorming  
+- multi-style generation  
 
-This explorer demonstrates that understanding visually and interactively.
+**Bad**  
+- inconsistency  
+- unstable tone  
+- poor instruction following  
+- safety drift  
+
+This explorer visualizes these dynamics clearly.
 
 ---
 
 ## How This Maps to Real Product Work
 
 ### Prompt Stability  
-Consistent answers are crucial for support, policy, and enterprise settings.
+Crucial for support, compliance, and enterprise systems.
 
 ### Prompt Flexibility  
-Variation is desirable in creative, brainstorming, or generative UX flows.
+Important for creative or generative tools.
 
 ### User Trust  
-Users lose trust when the same question yields wildly different answers without explanation.
+Users lose trust when identical questions get inconsistent answers.
 
-### Governance  
-Understanding variation helps design controls for safety, moderation, and alignment.
+### Governance & Safety  
+Understanding variation helps enforce predictable behavior.
 
-This tool surfaces all of these considerations clearly.
+This prototype ties model behavior directly into UX implications — a core AI PM competency.
 
 ---
 
@@ -137,7 +137,7 @@ This tool surfaces all of these considerations clearly.
 Main repo:  
 https://github.com/rtfenter/AI-ML-UX-Systems-Series
 
-Other prototypes in the series:
+Other prototypes in this series:
 
 - Minimal RAG Query Explorer  
 - Chat Model Behavior Sandbox  
@@ -150,7 +150,7 @@ Other prototypes in the series:
 ## Status
 
 MVP is implemented and active.  
-Client-side only — no backend required.
+Runs entirely client-side — no backend needed.
 
 ---
 
