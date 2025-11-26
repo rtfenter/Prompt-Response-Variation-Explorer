@@ -62,9 +62,9 @@ These produce noticeable differences across parameter sets.
 
 ## Demo Screenshot
 
-> Screenshot placeholder — will be updated after MVP UI is implemented.
+<img width="2804" height="2868" alt="Screenshot 2025-11-26 at 16-52-07 Prompt–Response Variation Explorer" src="https://github.com/user-attachments/assets/2e0e274d-adbb-4585-93a0-623e244c4144" />
 
-<img width="2600" alt="Prompt–Response Variation Explorer Screenshot" src="https://github.com/user-attachments/assets/placeholder-variation-explorer.png" />
+
 
 ---
 
