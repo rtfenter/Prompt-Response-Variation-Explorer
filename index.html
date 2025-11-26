@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Prompt–Response Variation Explorer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="page-header">
+    <div class="page-header-inner">
+      <h1>Prompt–Response Variation Explorer</h1>
+      <p class="tagline">
+        Compare how a single prompt produces multiple responses under different model-style settings.
+      </p>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Left panel: Prompt + Settings -->
+    <section class="panel panel-input">
+      <div class="panel-header">
+        <h2>Prompt & Variation Settings</h2>
+        <div class="panel-actions">
+          <button class="btn btn-secondary btn-prompt-preset" data-preset="explain">
+            Explain Simply
+          </button>
+          <button class="btn btn-secondary btn-prompt-preset" data-preset="summary">
+            Summarize Policy
+          </button>
+          <button class="btn btn-secondary btn-prompt-preset" data-preset="customer">
+            Customer Response
+          </button>
+        </div>
+      </div>
+
+      <p class="help-text">
+        Enter one prompt below, choose how many variations to compare, then click
+        <strong>Generate Variations</strong>.
+      </p>
+
+      <textarea
+        id="prompt-input"
+        class="prompt-input"
+        spellcheck="false"
+        rows="8"
+        placeholder="Example: Explain vector embeddings as if I’m new to machine learning..."
+      ></textarea>
+
+      <div class="variation-settings">
+        <div class="variation-settings-header">
+          <h3>Variation Configuration</h3>
+          <p class="help-text">
+            Each variation uses a different preset to highlight changes in length, structure, and creativity.
+          </p>
+        </div>
+
+        <div class="variation-settings-grid">
+          <div class="variation-count-group">
+            <div class="control-label-row">
+              <label>Number of Variations</label>
+            </div>
+            <p class="control-help">
+              Choose how many side-by-side responses to compare.
+            </p>
+            <div class="variation-count-toggle">
+              <button class="variation-count-btn variation-count-btn-active" data-count="2">
+                2
+              </button>
+              <button class="variation-count-btn" data-count="3">
+                3
+              </button>
+              <button class="variation-count-btn" data-count="4">
+                4
+              </button>
+            </div>
+          </div>
+
+          <div class="preset-legend">
+            <div class="legend-header">
+              <span class="legend-title">Preset Set</span>
+              <span class="legend-subtitle">Applied per variation in order</span>
+            </div>
+            <ul class="legend-list">
+              <li><span class="legend-chip">1</span> Balanced – medium length, neutral style</li>
+              <li><span class="legend-chip">2</span> High Creativity – longer, more exploratory</li>
+              <li><span class="legend-chip">3</span> Low Creativity – structured, compact</li>
+              <li><span class="legend-chip">4</span> Short Answer – compressed summary</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-footer">
+        <button id="generate-button" class="btn btn-primary">
+          Generate Variations
+        </button>
+        <span id="prompt-status" class="parse-status" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <!-- Right panel: Variations + Notes -->
+    <section class="panel panel-results">
+      <div class="panel-header">
+        <h2>Responses Comparison</h2>
+      </div>
+
+      <div id="summary" class="summary">
+        <div class="summary-badge summary-badge-idle">
+          No variations generated yet. Add a prompt and run your first comparison.
+        </div>
+      </div>
+
+      <div class="variations-grid">
+        <article class="variation-card" data-index="0">
+          <header class="variation-header">
+            <div class="variation-title-row">
+              <span class="variation-label">Variation 1</span>
+              <span class="variation-preset" id="preset-label-0">Balanced</span>
+            </div>
+            <p class="variation-meta" id="meta-0">
+              Medium length, neutral tone, moderate structure.
+            </p>
+          </header>
+          <div class="variation-body">
+            <p class="variation-placeholder" id="response-0">
+              Waiting for generation.
+            </p>
+          </div>
+        </article>
+
+        <article class="variation-card" data-index="1">
+          <header class="variation-header">
+            <div class="variation-title-row">
+              <span class="variation-label">Variation 2</span>
+              <span class="variation-preset" id="preset-label-1">High Creativity</span>
+            </div>
+            <p class="variation-meta" id="meta-1">
+              Longer, more exploratory, uses analogies and softer structure.
+            </p>
+          </header>
+          <div class="variation-body">
+            <p class="variation-placeholder" id="response-1">
+              Waiting for generation.
+            </p>
+          </div>
+        </article>
+
+        <article class="variation-card" data-index="2">
+          <header class="variation-header">
+            <div class="variation-title-row">
+              <span class="variation-label">Variation 3</span>
+              <span class="variation-preset" id="preset-label-2">Low Creativity</span>
+            </div>
+            <p class="variation-meta" id="meta-2">
+              Highly structured, list-heavy, focused on clarity and control.
+            </p>
+          </header>
+          <div class="variation-body">
+            <p class="variation-placeholder" id="response-2">
+              Waiting for generation.
+            </p>
+          </div>
+        </article>
+
+        <article class="variation-card" data-index="3">
+          <header class="variation-header">
+            <div class="variation-title-row">
+              <span class="variation-label">Variation 4</span>
+              <span class="variation-preset" id="preset-label-3">Short Answer</span>
+            </div>
+            <p class="variation-meta" id="meta-3">
+              Compressed summary optimized for short, high-signal answers.
+            </p>
+          </header>
+          <div class="variation-body">
+            <p class="variation-placeholder" id="response-3">
+              Waiting for generation.
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <div class="comparison-notes">
+        <h3>Comparison Notes</h3>
+        <p id="comparison-notes-text" class="comparison-text">
+          Once you generate responses, this section will translate differences into plain-language observations (e.g., “Variation 2 is more creative but less predictable than Variation 3.”).
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <p>
+      Part of the
+      <a href="https://github.com/rtfenter/AI-ML-UX-Systems-Series" target="_blank" rel="noreferrer">
+        AI &amp; ML UX Systems Series
+      </a>.
+    </p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
