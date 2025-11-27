@@ -30,6 +30,8 @@ It turns abstract model evaluation into a clean, legible UX artifact.
 
 ## Features (MVP)
 
+This prototype includes:
+
 - **Single prompt input**  
 - **Variation count selector (2–6)**  
 - **Parameter presets**:  
@@ -46,30 +48,15 @@ This explorer focuses on clarity, not infrastructure.
 
 ---
 
-## Example Prompts
-
-Helpful prompts for meaningful variation:
-
-1. “Explain vector embeddings as if I’m new to machine learning.”  
-2. “Summarize this policy: users can request data deletion at any time.”  
-3. “Respond to this customer complaint in a professional tone: ‘Your tool deleted a week of my work.’”  
-4. “Give three ideas for improving SaaS onboarding.”  
-5. “Describe the difference between RAG and fine-tuning in one paragraph.”
-
-These produce noticeable differences across parameter sets.
-
----
-
 ## Demo Screenshot
 
 <img width="2804" height="2868" alt="Screenshot 2025-11-26 at 16-52-07 Prompt–Response Variation Explorer" src="https://github.com/user-attachments/assets/2e0e274d-adbb-4585-93a0-623e244c4144" />
 
-
-
 ---
 
-## Variation Flow Diagram
+## Prompt Variation Flow Diagram
 
+```
 A simple illustration of how one prompt branches into multiple outputs:
 
     [Single Prompt]
@@ -83,6 +70,7 @@ A simple illustration of how one prompt branches into multiple outputs:
    Response 1  Response 2 Response 3 Response 4
            \__________ Compare __________/
                  Highlight differences
+```
 
 ---
 
@@ -153,7 +141,6 @@ MVP is implemented and active.
 Runs entirely client-side — no backend needed.
 
 ---
-
 ## Local Use
 
 1. Clone the repo  
