@@ -50,7 +50,8 @@ This explorer focuses on clarity, not infrastructure.
 
 ## Demo Screenshot
 
-<img width="2806" height="2868" alt="Screenshot 2025-11-27 at 15-12-52 Prompt–Response Variation Explorer" src="https://github.com/user-attachments/assets/a5c11473-6b92-4484-876a-f9c33845d92d" />
+<img width="2806" height="2868" alt="Screenshot 2025-11-28 at 15-18-40 Prompt–Response Variation Explorer" src="https://github.com/user-attachments/assets/9dd90cee-668d-4195-98c2-474cb69065c6" />
+
 
 
 ---
