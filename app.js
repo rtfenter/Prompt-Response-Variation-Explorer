@@ -52,8 +52,7 @@ const generateButton = document.getElementById("generate-button");
 const countButtons = document.querySelectorAll(".variation-count-btn");
 const summaryEl = document.getElementById("summary");
 const comparisonNotesEl = document.getElementById("comparison-notes-text");
-
-const promptPresetButtons = document.querySelectorAll(".btn-prompt-preset");
+const promptSelect = document.getElementById("prompt-select");
 
 const responseEls = [
   document.getElementById("response-0"),
@@ -91,13 +90,21 @@ const PROMPT_PRESETS = {
     "Respond to this customer complaint in a professional tone: “Your tool deleted a week of my work.”"
 };
 
-promptPresetButtons.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const key = btn.getAttribute("data-preset");
-    const text = PROMPT_PRESETS[key] || "";
-    promptInput.value = text;
-    promptStatus.textContent = "Loaded example prompt.";
-  });
+// Handle prompt selection from dropdown
+promptSelect.addEventListener("change", () => {
+  const key = promptSelect.value;
+
+  if (!key) {
+    promptInput.value = "";
+    promptStatus.textContent = "";
+    summaryIdle("No prompt selected yet. Choose an example to begin.");
+    return;
+  }
+
+  const text = PROMPT_PRESETS[key] || "";
+  promptInput.value = text;
+  promptStatus.textContent = "Loaded example prompt.";
+  summaryIdle("Prompt selected. Configure the count and generate variations.");
 });
 
 // Handle variation count selection
@@ -299,8 +306,8 @@ generateButton.addEventListener("click", () => {
   const prompt = promptInput.value.trim();
 
   if (!prompt) {
-    promptStatus.textContent = "Please enter a prompt first.";
-    summaryWarn("No prompt provided — nothing to compare yet.");
+    promptStatus.textContent = "Please select a prompt first.";
+    summaryWarn("No prompt selected — nothing to compare yet.");
     return;
   }
 
@@ -333,4 +340,4 @@ generateButton.addEventListener("click", () => {
 });
 
 // Initial idle summary
-summaryIdle("No variations generated yet. Configure the count and add a prompt to begin.");
+summaryIdle("No variations generated yet. Select a prompt and configure the count to begin.");
