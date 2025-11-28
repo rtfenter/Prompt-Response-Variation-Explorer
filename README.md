@@ -127,13 +127,6 @@ This prototype ties model behavior directly into UX implications — a core AI P
 Main repo:  
 https://github.com/rtfenter/AI-ML-UX-Systems-Series
 
-Other prototypes in this series:
-
-- Minimal RAG Query Explorer  
-- Chat Model Behavior Sandbox  
-- **Prompt–Response Variation Explorer** ← this repo  
-- Model Explainer Playground (XAI Lite)  
-- Embeddings Visual Map (Mini Version)
 
 ---
 
